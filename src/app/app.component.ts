@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormControl,FormGroup, Validators ,} from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Reactive';
+  loginform=new FormGroup({
+    username:new FormControl('pushpak katariya',[Validators.required]),
+    password:new FormControl('15148')
+  })
+
+  onsubmit(){
+    console.warn(this.loginform.value)
+  }
+  get username(){
+    return this.loginform.get('username')
+  }
 }
